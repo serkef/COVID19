@@ -1,0 +1,36 @@
+,Province/Region/City 1,Unnamed: 0,"Population (in 10,000s)",Confirmed Cases,Suspect Cases2,Unnamed: 1,Total Deaths
+0,Hubei,,5917,33366,11295,,1068
+1,Guangdong,,11346,1219,135,,1
+2,Zhejiang,,5737,1131,263,,0
+3,Henan,,9605,1135,538,,8
+4,Hunan,,6899,946,135,,2
+5,Anhui,,6324,889,79,,4
+6,Jiangxi,,4648,844,155,,1
+7,Jiangsu,,8051,543,62,,0
+8,Chongqing,,3102,505,428,,3
+9,Shandong,,10047,497,71,,1
+10,Sichuan,,8341,436,432,,1
+11,Heilongjiang,,3773,378,171,,8
+12,Beijing,,2154,352,218,,3
+13,Shanghai,,2424,306,177,,1
+14,Fujian,,3941,272,74,,0
+15,Hebei,,7556,251,43,,2
+16,Shaanxi,,3864,225,367,,0
+17,Guangxi,,4926,222,248,,1
+18,Yunnan,,4830,154,89,,0
+19,Hainan,,934,145,206,,3
+20,Shanxi,,3718,124,65,,0
+21,Guizhou,,3600,131,53,,1
+22,Liaoning,,4359,111,287,,0
+23,Tianjin,,1560,106,328,,2
+24,Gansu,,2637,86,18,,2
+25,Jilin,,2704,83,57,,1
+26,Inner Mongolia,,2534,60,11,,0
+27,Xinjiang,,2487,59,31,,0
+28,Ningxia,,688,58,31,,0
+29,Hong Kong SAR,,745,49,0,,1
+30,Qinghai,,603,18,0,,0
+31,Taipei and environs,,2359,18,0,,0
+32,Macao SAR,,66,10,0,,0
+33,Xizang,,344,1,0,,0
+34,Total,,142823,44730,16067,,1114
