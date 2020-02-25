@@ -1,6 +1,6 @@
-#COVID-19
+# COVID-19
 
-##World Health Organization
+## World Health Organization
 We download the Situation Reports regarding Coronavirus disease.
 
 * `download_situation_reports.py` - Downloads all reports (in pdf) from [who web page](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports/)
