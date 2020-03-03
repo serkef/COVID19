@@ -56,21 +56,31 @@ DB_CREATE_POSTS = (
     "rec_value NUMERIC "
     ")"
 )
-DB_GET_LATEST_UPDATES = (
-    "SELECT "
-    "latest_daily.rec_dt, latest_daily.rec_territory, latest_daily.rec_value "
-    "FROM "
-    "latest_daily AS latest_daily "
-    "   LEFT JOIN posts AS posts "
-    "   ON latest_daily.rec_territory = posts.rec_territory "
-    "   AND latest_daily.rec_dt = posts.rec_dt "
-    "WHERE "
-    "(posts.rec_value IS NULL OR posts.rec_value < latest_daily.rec_value) "
-    " AND latest_daily.rec_value > 0 "
-    " AND (posts.rec_value IS NULL OR strftime('%s','now') - strftime('%s', posts.ts) > 3600)"
-    " AND julianday('now')- julianday(latest_daily.rec_dt) <= 1"
-    " AND 0 < julianday('now')- julianday(latest_daily.rec_dt)"
-)
+DB_GET_LATEST_UPDATES = """
+    SELECT 
+    latest_daily.rec_dt, latest_daily.rec_territory, latest_daily.rec_value
+    
+    FROM 
+    latest_daily AS latest_daily    
+    LEFT JOIN (
+        SELECT 
+            max(ts) AS ts, 
+            rec_dt, 
+            rec_territory, 
+            max(rec_value) AS rec_value
+        FROM posts
+        GROUP BY rec_dt, rec_territory
+    ) AS latest_posts
+    ON latest_daily.rec_territory = latest_posts.rec_territory
+    AND latest_daily.rec_dt = latest_posts.rec_dt
+    
+    WHERE 
+    latest_daily.rec_value > 0  
+    AND (latest_posts.rec_value IS NULL OR latest_posts.rec_value < latest_daily.rec_value)  
+    AND (latest_posts.rec_value IS NULL OR strftime('%s','now') - strftime('%s', latest_posts.ts) > 3600) 
+    AND julianday('now')- julianday(latest_daily.rec_dt) <= 1 
+    AND 0 < julianday('now')- julianday(latest_daily.rec_dt)
+"""
 
 DB_CONNECTION = sqlite3.connect(f"{DB_PATH}")
 
